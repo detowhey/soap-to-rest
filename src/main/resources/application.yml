@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: soap-to-rest
+
+
+url:
+  via-cep: https://viacep.com.br/ws
