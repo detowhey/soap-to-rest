@@ -5,16 +5,16 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @JacksonXmlRootElement(localName = "xmlcep")
 public record CepXml(
-        @JacksonXmlProperty(localName = "cep") String cep,
-        @JacksonXmlProperty(localName = "logradouro") String logradouro,
-        @JacksonXmlProperty(localName = "complemento") String complemento,
-        @JacksonXmlProperty(localName = "bairro") String bairro,
-        @JacksonXmlProperty(localName = "localidade") String localidade,
+        @JacksonXmlProperty(localName = "cep") String zipCode,
+        @JacksonXmlProperty(localName = "logradouro") String street,
+        @JacksonXmlProperty(localName = "complemento") String complement,
+        @JacksonXmlProperty(localName = "bairro") String neighborhood,
+        @JacksonXmlProperty(localName = "localidade") String city,
         @JacksonXmlProperty(localName = "uf") String uf,
-        @JacksonXmlProperty(localName = "estado") String estado,
-        @JacksonXmlProperty(localName = "regiao") String regiao,
-        @JacksonXmlProperty(localName = "ibge") String ibge,
-        @JacksonXmlProperty(localName = "ddd") String ddd,
-        @JacksonXmlProperty(localName = "siafi") String siafi
+        @JacksonXmlProperty(localName = "estado") String state,
+        @JacksonXmlProperty(localName = "regiao") String region,
+        @JacksonXmlProperty(localName = "ibge") String ibgeCode,
+        @JacksonXmlProperty(localName = "ddd") String areaCode,
+        @JacksonXmlProperty(localName = "siafi") String siafiCode
 ) {
 }

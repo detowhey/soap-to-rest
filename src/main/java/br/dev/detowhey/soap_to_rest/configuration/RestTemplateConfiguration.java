@@ -14,9 +14,10 @@ import java.util.List;
 @Configuration
 public class RestTemplateConfiguration {
 
+    private static final String JAXB_2 = "Jaxb2";
     private final String url;
 
-    public RestTemplateConfiguration(@Value("${url.via-cep}") String url) {
+    public RestTemplateConfiguration(@Value("${url.via-zipCode}") String url) {
         if (url.isBlank())
             throw new RuntimeException("Url cannot be null");
 
@@ -28,13 +29,11 @@ public class RestTemplateConfiguration {
         RestTemplate restTemplate = new RestTemplate();
         XmlMapper xmlMapper = new XmlMapper();
         MappingJackson2XmlHttpMessageConverter xmlConverter = new MappingJackson2XmlHttpMessageConverter(xmlMapper);
-
         List<HttpMessageConverter<?>> converters = restTemplate.getMessageConverters();
-        converters.removeIf(c -> c instanceof MappingJackson2XmlHttpMessageConverter || c.getClass().getSimpleName().contains("Jaxb2"));
+        converters.removeIf(converter -> converter
+                instanceof MappingJackson2XmlHttpMessageConverter
+                || converter.getClass().getSimpleName().contains(JAXB_2));
         converters.add(xmlConverter);
-
-        return builder
-                .rootUri(url)
-                .build();
+        return builder.rootUri(url).build();
     }
 }
