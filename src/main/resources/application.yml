@@ -4,4 +4,4 @@ spring:
 
 
 url:
-  via-cep: https://viacep.com.br/ws
+  via-zipCode: https://viacep.com.br/ws
